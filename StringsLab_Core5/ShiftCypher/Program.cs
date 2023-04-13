@@ -9,13 +9,10 @@ namespace ShiftCypher
         {
             Console.WriteLine("Type a word or phrase:");
             string sentence = Console.ReadLine();
-            string[] words = sentence.Split();
-            Console.WriteLine("Type a number to shift to:");
-            int shift = int.Parse(Console.ReadLine());
-            for (int i = 0; i < words.Length; i++)
-            {
-                Console.Write(ShiftCypher(words[i], shift) + " ");
-            }
+            Random gen = new Random();
+            int shift = gen.Next(-10, 11);
+            Console.WriteLine("Shift: " + shift);
+            Console.WriteLine(ShiftCypher(sentence, shift));
         }
         static string ShiftCypher(string sentence, int shift)
         {
